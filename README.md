@@ -19,7 +19,10 @@
 - The excess formula use JavaScript engine as background so that it can accept any javascript input as long as there are three variable name should not be changed, they are excess, fundReturn and benchmarkReturn.
 -The only main program is MainStart.java. Then the JVM will create a static ConfigStore class to manage all the configurable items such as read the config.prop file and check their content is it complete as per design.
 -For any incorrect date given in csv file would stop the process and give a warning messag. It requied all the feedin csv file has correct data to complete the process.
+-Assume the code would run on linux or Mac the only issue is the file path, such as C:/ and .\ different. If the config on config.prop is correct then it would be not a issue.
+- The code does not test on any PC yet.
 - After the testing success. The program will create an Analyzer instance and only public method named process(), that method will process the following
+###Development Detail
 <li>load fundReturnSeries.csv file and create the core collection of entity. 
 <li>then load the funds.csv to grep the fundName and benchmarkCode,
 <li>then load the benchmarkReturnSeries.csv file to check the percent for a given date and benchmarkCode.
@@ -41,7 +44,7 @@
 - the build machine should possible to connect to internet in order the maven would checkout form plugin on the fly.
 - go to the folder on pom.xml and run mvn clean install
 - then it would show the SUCCESS after some code download and build process.
-- then go to target folder and copy the lonsec-<XXXX>-jar-with-dependencies.jar
+- then go to target folder and copy the lonsec-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 
 ## Testing
 - Maven will help to test the code before compile
@@ -59,7 +62,7 @@
 - prepare those csv file and edit the config.prop for those csv file location which related to current logical directory.
 - run the comment of java -jar lonsec-<XXXX>-jar-with-dependencies.jar. and the screen output will show the config detail, Process start and Process Finished!
 - the go to the designed report output folder and find the file as expected. now the file are set under config.prop content MONTHLY_OUTPERFORMANCE_FILEPATH as ./testData/monthlyOutperformance.csv
-- if incase the config.prop is locate on other location it can use the -Dconfig option to redirect the config.prop file location. that is java -jar -Dconfig=<somewhere else> lonsec-<XXXX>-jar-with-dependencies.jar
+- if incase the config.prop is locate on other location it can use the -Dconfig option to redirect the config.prop file location. that is java -jar -Dconfig=<somewhere else> lonsec-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 
 
  
