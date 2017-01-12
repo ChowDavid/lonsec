@@ -1,0 +1,9 @@
+EXCESS_RULE=excess=fundReturn-benchmarkReturn
+OUT_PERFORMED_LABEL=out performed
+UNDER_PERFORMED_LABEL=under performed
+FUNDS_FILEPATH=./src/test/resources/test6/fund.csv
+BENCHMARK_FILEPATH=./src/test/resources/test6/benchmark.csv
+FUND_RETURN_SERIES_FILEPATH=./src/test/resources/test6/FundReturnSeries.csv
+BENCH_RETURN_SERIES_FILEPATH=./src/test/resources/test6/BenchReturnSeries.csv
+MONTHLY_OUTPERFORMANCE_FILEPATH=./src/test/resources/test6/monthlyOutperformance.csv
+DATE_FORMAT=dd/MM/yyyy,yyyy-MM-dd
