@@ -64,5 +64,17 @@
 - the go to the designed report output folder and find the file as expected. now the file are set under config.prop content MONTHLY_OUTPERFORMANCE_FILEPATH as ./testData/monthlyOutperformance.csv
 - if incase the config.prop is locate on other location it can use the -Dconfig option to redirect the config.prop file location. that is java -jar -Dconfig=<somewhere else> lonsec-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 
+##Quick checkout from Github
+- download the zip from github. but press the download zip button
+- unzip it on your mac or linux
+- assume you have java and maven install.
+- type mvn clean install
+- copy the lonsec-0.0.1-SNAPSHOT-jar-with-dependencies.jar to your working directory
+- copy the config.pro to your working directory
+- copy the csv file to your target directory
+- set the config.prop about the csv file location and file name.
+- run the code by java -jar lonsec-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+
 
  
