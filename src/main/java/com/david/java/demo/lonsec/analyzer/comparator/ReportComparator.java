@@ -4,6 +4,13 @@ import java.util.Comparator;
 
 import com.david.java.demo.lonsec.analyzer.DetailEntity;
 
+/**
+ * Comparator help to sort our the date and rank relation,
+ * Compare the date first then if date is same then compare the rank,
+ * It is requirement of report output sort by return date desc and rank asc.
+ * @author david
+ *
+ */
 public class ReportComparator implements Comparator<DetailEntity> {
 
 	@Override

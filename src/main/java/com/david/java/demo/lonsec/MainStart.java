@@ -10,6 +10,11 @@ import com.david.java.demo.lonsec.exception.FileReadingException;
 import com.david.java.demo.lonsec.exception.IncompleteArgumentException;
 import com.david.java.demo.lonsec.exception.IncorrectDataException;
 
+/**
+ * Main program.
+ * @author david
+ *
+ */
 public class MainStart {
 
 	public static void main(String[] args) {	

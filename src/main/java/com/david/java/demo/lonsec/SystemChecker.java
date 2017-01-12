@@ -4,6 +4,11 @@ import static com.david.java.demo.lonsec.Constant.*;
 
 import com.david.java.demo.lonsec.exception.ConfigException;
 
+/**
+ * help to check and printout the internal config
+ * @author david
+ *
+ */
 public class SystemChecker {
 
 	public boolean isPassed() {

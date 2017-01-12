@@ -38,7 +38,11 @@ import com.david.java.demo.lonsec.exception.DuplicateRecordException;
 import com.david.java.demo.lonsec.exception.FileReadingException;
 import com.david.java.demo.lonsec.exception.IncompleteArgumentException;
 import com.david.java.demo.lonsec.exception.IncorrectDataException;
-
+/**
+ * Main program here
+ * @author david
+ *
+ */
 public class Analyzer {
 
 	private Map<String, List<DetailEntity>> fundCodeMap;
@@ -58,6 +62,14 @@ public class Analyzer {
 		allRecords = new ArrayList<>();
 	}
 
+	/**
+	 * follow the step to process. the only public method
+	 * @throws ConfigException
+	 * @throws IOException
+	 * @throws FileReadingException
+	 * @throws IncorrectDataException
+	 * @throws IncompleteArgumentException
+	 */
 	public void process() throws ConfigException, IOException, FileReadingException, IncorrectDataException,
 			IncompleteArgumentException {
 		loadFundReturnSeries();
@@ -71,6 +83,11 @@ public class Analyzer {
 	}
 
 
+	/**
+	 * load the beanchmark file into the entity
+	 * @throws IOException
+	 * @throws IncorrectDataException
+	 */
 	private void loadBenchmark() throws IOException, IncorrectDataException {
 		Set<String> primaryKey = new HashSet<>();
 
@@ -106,6 +123,11 @@ public class Analyzer {
 		
 	}
 
+	/**
+	 * export the entity into csv file
+	 * @throws IOException
+	 * @throws ConfigException
+	 */
 	private void exportToReport() throws IOException, ConfigException {
 		for (Collection<DetailEntity> records : fundCodeMap.values()) {
 			allRecords.addAll(records);
@@ -121,6 +143,9 @@ public class Analyzer {
 
 	}
 
+	/**
+	 * calculate the rank 
+	 */
 	private void fillRankGroupByDate() {
 		for (List<DetailEntity> records : dateMap.values()) {
 			Collections.sort(records, new RankComparator());
@@ -133,6 +158,11 @@ public class Analyzer {
 
 	}
 
+	/**
+	 * calcualte the excess and fill the performance wording on the entity
+	 * @throws ConfigException
+	 * @throws IncompleteArgumentException
+	 */
 	private void fillExcessAndPerformance() throws  ConfigException, IncompleteArgumentException {
 
 		try {
@@ -147,6 +177,12 @@ public class Analyzer {
 
 	}
 
+	/**
+	 * call the Javascript and load the formula to calculate the excess. it is the requirement of externalize the rule outside the code.
+	 * @param record
+	 * @throws ScriptException
+	 * @throws IncompleteArgumentException
+	 */
 	private void calculateExcess(DetailEntity record) throws ScriptException, IncompleteArgumentException {
 		ScriptEngineManager manager = new ScriptEngineManager();
 		ScriptEngine engine = manager.getEngineByName("javascript");
@@ -169,6 +205,11 @@ public class Analyzer {
 
 	}
 
+	/**
+	 * load the benchmarkReturn value into the entity
+	 * @throws IOException
+	 * @throws IncorrectDataException
+	 */
 	private void loadBenchmarkReturnSeries() throws IOException, IncorrectDataException{
 		Path file = ConfigStore.getExistingFile(BENCH_RETURN_SERIES_FILEPATH);
 		Set<String> primaryKey = new HashSet<>();
@@ -205,6 +246,11 @@ public class Analyzer {
 
 	}
 
+	/**
+	 * load the funds information and update the entity.
+	 * @throws IncorrectDataException
+	 * @throws IOException
+	 */
 	private void loadFunds() throws IncorrectDataException, IOException {
 		Set<String> primaryKey = new HashSet<>();
 
@@ -247,6 +293,11 @@ public class Analyzer {
 
 	}
 
+	/**
+	 * load the fund return value and create entity. No other location would create entity.
+	 * @throws IOException
+	 * @throws IncorrectDataException
+	 */
 	private void loadFundReturnSeries() throws IOException, IncorrectDataException {
 		Path fundReturn = ConfigStore.getExistingFile(FUND_RETURN_SERIES_FILEPATH);
 		List<String> lines = Files.readAllLines(fundReturn);
